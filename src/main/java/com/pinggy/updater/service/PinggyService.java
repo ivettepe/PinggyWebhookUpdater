@@ -31,7 +31,11 @@ public class PinggyService {
 //                    "serveo.net"
 //            );
             ProcessBuilder pb = new ProcessBuilder(
-                    "ssh", "-p", "443", "-o", "StrictHostKeyChecking=no", "-R0:" + properties.getHost() + ":" + properties.getPort(),
+                    "ssh",
+                    "-p", "443",
+                    "-o", "StrictHostKeyChecking=no",
+                    "-o", "BatchMode=yes",
+                    "-R0:" + properties.getHost() + ":" + properties.getPort(),
                     "qr@free.pinggy.io"
             );
             pb.redirectErrorStream(true);
